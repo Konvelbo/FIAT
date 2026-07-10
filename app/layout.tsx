@@ -86,7 +86,7 @@ export default function RootLayout({
       lang="fr"
       className={`${inter.variable} ${geistMono.variable}`}
     >
-      <body className="min-h-screen antialiased text-fiat-text" style={{ backgroundColor: 'var(--fiat-black)' }}>
+      <body className="min-h-screen antialiased text-fiat-text">
         <CustomCursor />
         {children}
       </body>

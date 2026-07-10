@@ -140,45 +140,49 @@ export default function Navbar() {
                     {activeDropdown === link.label && (
                       <div style={{
                         position: 'absolute',
-                        top: 'calc(100% + 12px)',
+                        top: '100%',
                         left: '50%',
                         transform: 'translateX(-50%)',
-                        width: '220px',
-                        borderRadius: '8px',
-                        overflow: 'hidden',
-                        background: 'rgba(17,18,24,0.97)',
-                        backdropFilter: 'blur(20px)',
-                        WebkitBackdropFilter: 'blur(20px)',
-                        border: '1px solid rgba(255,255,255,0.08)',
-                        boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+                        paddingTop: '12px', /* Invisible bridge to prevent mouseleave */
                         zIndex: 100,
                       }}>
-                        {link.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            style={{
-                              display: 'flex', alignItems: 'center', gap: '10px',
-                              padding: '12px 16px',
-                              fontSize: '0.88rem', fontWeight: 500,
-                              color: 'var(--fiat-muted)', textDecoration: 'none',
-                              transition: 'background 0.15s, color 0.15s',
-                            }}
-                            onMouseEnter={e => {
-                              const el = e.currentTarget as HTMLElement
-                              el.style.color = 'var(--fiat-gold)'
-                              el.style.background = 'rgba(201,162,39,0.06)'
-                            }}
-                            onMouseLeave={e => {
-                              const el = e.currentTarget as HTMLElement
-                              el.style.color = 'var(--fiat-muted)'
-                              el.style.background = 'transparent'
-                            }}
-                          >
-                            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--fiat-gold)', opacity: 0.6, flexShrink: 0, display: 'block' }} />
-                            {child.label}
-                          </Link>
-                        ))}
+                        <div style={{
+                          width: '220px',
+                          borderRadius: '8px',
+                          overflow: 'hidden',
+                          background: 'rgba(17,18,24,0.97)',
+                          backdropFilter: 'blur(20px)',
+                          WebkitBackdropFilter: 'blur(20px)',
+                          border: '1px solid rgba(255,255,255,0.08)',
+                          boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+                        }}>
+                          {link.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              style={{
+                                display: 'flex', alignItems: 'center', gap: '10px',
+                                padding: '12px 16px',
+                                fontSize: '0.88rem', fontWeight: 500,
+                                color: 'var(--fiat-muted)', textDecoration: 'none',
+                                transition: 'background 0.15s, color 0.15s',
+                              }}
+                              onMouseEnter={e => {
+                                const el = e.currentTarget as HTMLElement
+                                el.style.color = 'var(--fiat-gold)'
+                                el.style.background = 'rgba(201,162,39,0.06)'
+                              }}
+                              onMouseLeave={e => {
+                                const el = e.currentTarget as HTMLElement
+                                el.style.color = 'var(--fiat-muted)'
+                                el.style.background = 'transparent'
+                              }}
+                            >
+                              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--fiat-gold)', opacity: 0.6, flexShrink: 0, display: 'block' }} />
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
